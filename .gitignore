@@ -7,3 +7,7 @@
 /dataSources.local.xml
 # macOS system files
 /.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+
