@@ -1,8 +1,3 @@
-wildfire_modeling/model_builder.py
-
-
-# wildfire_modeling/model_builder.py
-
 from tensorflow.keras.applications import InceptionV3
 from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.models import Sequential
