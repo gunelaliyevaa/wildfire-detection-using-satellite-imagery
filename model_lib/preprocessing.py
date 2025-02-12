@@ -1,8 +1,3 @@
-wildfire_modeling/preprocessing.py
-
-
-# wildfire_modeling/preprocessing.py
-
 import numpy as np
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
