@@ -1,8 +1,3 @@
-wildfire_modeling/training.py
-
-
-# wildfire_modeling/training.py
-
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 import tensorflow as tf
 
