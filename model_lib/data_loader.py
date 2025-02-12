@@ -1,7 +1,3 @@
-wildfire_modeling/data_loader.py
-
-# wildfire_modeling/data_loader.py
-
 import os
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
