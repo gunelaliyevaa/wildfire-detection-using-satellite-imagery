@@ -1,8 +1,3 @@
-wildfire_modeling/utils.py
-
-
-# wildfire_modeling/utils.py
-
 import matplotlib.pyplot as plt
 
 def plot_training_history(history):
