@@ -1,8 +1,3 @@
-wildfire_modeling/init.py
-
-
-# wildfire_modeling/_init_.py
-
 from .data_loader import count_images_in_directory, create_data_generators
 from .model_builder import build_model
 from .training import train_model, fine_tune_model
