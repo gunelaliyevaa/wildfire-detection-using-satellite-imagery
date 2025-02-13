@@ -3,7 +3,7 @@ import ee
 import requests
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from earth_engine import fetch_image_collection
+from .earth_engine import fetch_image_collection
 
 
 def process_image(collection, rectangle):
