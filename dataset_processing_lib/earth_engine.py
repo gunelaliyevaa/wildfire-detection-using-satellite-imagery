@@ -10,21 +10,7 @@ def auth_earth_engine(project_id):
     ee.Authenticate()
     ee.Initialize(project=project_id)
 
-def create_rectangle(longitude, latitude, buffer=0.02):
-    """
-        Create a rectangular geometry around the given coordinates.
-
-        Parameters:
-            longitude (float): Longitude of the center point.
-            latitude (float): Latitude of the center point.
-            buffer (float): Buffer size to extend the rectangle (default is 0.02).
-
-        Returns:
-            ee.Geometry.Rectangle: The generated rectangle geometry.
-        """
-    return ee.Geometry.Rectangle([longitude - buffer, latitude - buffer, longitude + buffer, latitude + buffer])
-
-def fetch_image_collection(longitude, latitude, start_date, end_date):
+def fetch_image_collection(longitude, latitude, start_date, end_date, buffer=0.02):
     """
     Fetch the Sentinel-2 image collection for a given fire event.
 
@@ -37,7 +23,12 @@ def fetch_image_collection(longitude, latitude, start_date, end_date):
     Returns:
         tuple: (ee.ImageCollection, ee.Geometry.Rectangle)
     """
-    rectangle = create_rectangle(longitude, latitude)
+    rectangle = ee.Geometry.Rectangle([
+        longitude - buffer,
+        latitude - buffer,
+        longitude + buffer,
+        latitude + buffer
+    ])
     collection = (ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                   .filterBounds(rectangle)
                   .filterDate(start_date, end_date)
