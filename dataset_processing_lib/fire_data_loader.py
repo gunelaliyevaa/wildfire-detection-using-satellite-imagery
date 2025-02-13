@@ -1,5 +1,4 @@
 import pandas as pd
-# fire_imagery/data_loader.py
 
 def load_fire_data(csv_path):
     """
