@@ -69,8 +69,10 @@ def process_fire_event(row, output_dir):
         output_dir (str): Directory where the image will be saved.
     """
     latitude, longitude = row['latitude'], row['longitude']
-    start_date = pd.to_datetime(row['acq_date']).strftime('%Y-%m-%d')
-    end_date = (pd.to_datetime(start_date) + pd.DateOffset(days=1)).strftime('%Y-%m-%d')
+    acq_date = pd.to_datetime(row['acq_date'])
+
+    start_date = (acq_date - pd.DateOffset(days=1)).strftime('%Y-%m-%d')
+    end_date = (acq_date + pd.DateOffset(days=1)).strftime('%Y-%m-%d')
 
     collection, rectangle = fetch_image_collection(longitude, latitude, start_date, end_date)
     image = process_image(collection, rectangle)
