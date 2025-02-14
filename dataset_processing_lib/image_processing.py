@@ -88,7 +88,6 @@ def process_fire_events_concurrently(fire_df, output_dir, max_workers=5):
         output_dir (str): Directory to save downloaded images.
         max_workers (int): Maximum number of concurrent threads.
     """
-    # Optionally, you can use ensure_dir() from utils if you prefer.
     os.makedirs(output_dir, exist_ok=True)
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = [executor.submit(process_fire_event, row, output_dir)

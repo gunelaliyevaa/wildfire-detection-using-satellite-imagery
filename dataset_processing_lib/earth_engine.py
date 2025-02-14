@@ -30,8 +30,7 @@ def create_rectangle(longitude, latitude, buffer=0.02):
         latitude + buffer
     ])
 
-
-def fetch_image_collection(longitude, latitude, start_date, end_date, rectangle=None, buffer=0.02):
+def fetch_image_collection(longitude, latitude, start_date, end_date, buffer=0.02):
     """
     Fetch the Sentinel-2 image collection for a given fire event.
 
@@ -40,21 +39,17 @@ def fetch_image_collection(longitude, latitude, start_date, end_date, rectangle=
         latitude (float): Latitude coordinate of the fire event.
         start_date (str): Start date (format 'YYYY-MM-DD').
         end_date (str): End date (format 'YYYY-MM-DD').
-        rectangle (ee.Geometry.Rectangle, optional): Pre-computed rectangle. If None, it will be computed.
         buffer (float): Buffer size to use when computing the rectangle if not provided.
 
     Returns:
         tuple: (ee.ImageCollection, ee.Geometry.Rectangle)
     """
-    # Use the provided rectangle or compute a new one
-    if rectangle is None:
-        rectangle = create_rectangle(longitude, latitude, buffer)
-
+    rectangle = create_rectangle(longitude, latitude, buffer)
     collection = (ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                   .filterBounds(rectangle)
                   .filterDate(start_date, end_date)
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 15))
-                  .map(lambda img: img.divide(10000))) # Normalize
+                  .map(lambda img: img.divide(10000)))  # Normalize
     return collection, rectangle
 
 
