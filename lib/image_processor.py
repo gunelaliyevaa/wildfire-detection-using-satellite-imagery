@@ -2,7 +2,7 @@ import os
 import ee
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from .utils import download_image, save_image, generate_download_url
+from lib.utils import download_image, save_image, generate_download_url
 
 def get_satellite_collection(longitude, latitude, start_date, end_date,
                              collection = 'COPERNICUS/S2_SR_HARMONIZED',

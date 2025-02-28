@@ -1,6 +1,8 @@
 import os
 import requests
+import matplotlib.pyplot as plt
 
+# Dataset Processing Utility Functions
 def generate_download_url(image, rectangle):
     """
     Generates a thumbnail download URL for a satellite image.
@@ -88,3 +90,31 @@ def save_image(image_content, output_dir, filename):
     except OSError as e:
         print(f"Failed to save {filename}: {e}")
 
+# Model Training Utility Functions
+
+def plot_training_history(history):
+    """
+    Plot training and validation accuracy from the training history.
+
+    Args:
+        history: History object returned by model.fit.
+    """
+    plt.plot(history.history['accuracy'], label='Training Accuracy')
+    plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+    plt.legend()
+    plt.title('Training and Validation Accuracy')
+    plt.show()
+
+
+def plot_fine_tuning_history(history):
+    """
+    Plot fine-tuning training and validation accuracy.
+
+    Args:
+        history: History object from fine-tuning.
+    """
+    plt.plot(history.history['accuracy'], label='Training Accuracy (Fine-tune)')
+    plt.plot(history.history['val_accuracy'], label='Validation Accuracy (Fine-tune)')
+    plt.legend()
+    plt.title('Fine-Tuning Accuracy')
+    plt.show()

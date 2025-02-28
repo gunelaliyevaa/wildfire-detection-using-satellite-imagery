@@ -29,7 +29,7 @@ def fine_tune_model(model, base_model, train_generator, val_generator, epochs=10
     """
     Fine-tune the model by unfreezing the base model and training with a lower learning rate.
     
-    Parameters:
+    Args:
         model: The previously trained Keras model.
         base_model: The base model whose layers will be unfrozen.
         train_generator: Training data generator.
