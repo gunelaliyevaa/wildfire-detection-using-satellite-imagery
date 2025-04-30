@@ -17,7 +17,7 @@ This project will use **convolutional neural networks (CNNs)**, a deep learning 
 ### Key Steps in the Project
 1. **Data Collection and Preparation**: We will gather satellite images from publicly available sources, such as NASA’s MODIS and VIIRS data, along with ESA’s Sentinel-2 imagery. The dataset will include both real and synthetic images to help the model learn various wildfire scenarios.
 2. **Data Processing**: Preprocessing steps, such as cloud masking, will ensure data accuracy. Cloud masking helps filter out areas obscured by clouds, which could otherwise interfere with detecting fire patterns.
-3. **Model Training and Evaluation**: Using a pre-trained CNN model (InceptionV3), we will fine-tune the model with our dataset of wildfire images. The model will be trained to **detect fire smoke, plumes, and differentiate between smoke and clouds ** in satellite imagery.
+3. **Model Training and Evaluation**: Using a pre-trained CNN model, we will fine-tune the model with our dataset of wildfire images. The model will be trained to **detect fire smoke, plumes, and differentiate between smoke and clouds ** in satellite imagery.
 4. **Visualization and Analysis**: To make results accessible, we plan to develop a basic visualization tool that allows users to filter images by date, intensity, and location, providing a clear view of wildfire-affected areas.
 
 ## Expected Outcomes
