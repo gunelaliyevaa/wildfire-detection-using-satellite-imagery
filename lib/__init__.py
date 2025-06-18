@@ -2,7 +2,7 @@ from .utils import generate_download_url, save_image, download_image, plot_train
 from .image_processor import get_satellite_collection, process_single_event, process_event_batch
 from .training import train_model
 from .predictor import predict_fire
-from image_utils import apply_clahe_rgb, split_into_patches, preprocess_and_patch
+from image_preprocessor import apply_clahe_rgb, split_into_patches, preprocess_and_patch
 
 
 
